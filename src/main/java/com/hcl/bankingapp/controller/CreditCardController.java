@@ -40,8 +40,8 @@ public class CreditCardController {
 		return new ResponseEntity<PaymentResDTO>(result, HttpStatus.OK);
 	}
 	
-	@PostMapping("/authenticate")
-	public ResponseEntity<String> authenticatePayment(@RequestParam int otpGenId, @RequestParam int otp,@RequestBody PaymentRequestDTO paymentRequestDTO) {
+	@PostMapping("/authenticate/{otpGenId}/{otp}")
+	public ResponseEntity<String> authenticatePayment(@PathVariable int otpGenId, @PathVariable int otp,@RequestBody PaymentRequestDTO paymentRequestDTO) {
 	//	creditCardService.authenticatePayee(otpGenId, otp,paymentRequestDTO);
 		return creditCardService.authenticatePayee(otpGenId, otp,paymentRequestDTO);
 	}

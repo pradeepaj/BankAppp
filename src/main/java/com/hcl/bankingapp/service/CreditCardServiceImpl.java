@@ -72,11 +72,11 @@ public class CreditCardServiceImpl implements CreditCardService {
 			System.out.println("check the date   " + datee);
 			String checkDate = paymentRequestDTO.getExpDate().split("/")[1];
 
-			System.out.println("check the date   " + checkDate);
+			//System.out.println("check the date   " + checkDate);
 
 			if (creditD.getCreditBalance() > paymentRequestDTO.getCreditAmount()
 					&& creditD.getCvv() == paymentRequestDTO.getCvv() && datee.equals(checkDate)) {
-				System.out.println("inside ");
+				//System.out.println("inside ");
 				double afterDeduction = creditD.getCreditBalance() - paymentRequestDTO.getCreditAmount();
 				CreditCardDetails afterDeductionDetails = new CreditCardDetails();
 				// after deduction
@@ -203,7 +203,7 @@ public class CreditCardServiceImpl implements CreditCardService {
 					
 					credDTO.setAccountNumber(tr.getToAccountNumber());
 					credDTO.setPaymentType(tr.getPaymentType());
-					credDTO.setReceiverName(tr.getReceiverName());
+					credDTO.setReceiverName("Amazon");
 					credDTO.setDebitAmount(tr.getDebitAmount());
 					credDTO.setDescription(tr.getDescription());
 					credDTO.setTransactionDate(tr.getTransactionDate());
